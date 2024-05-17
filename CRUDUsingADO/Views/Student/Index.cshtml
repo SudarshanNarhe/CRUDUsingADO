@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CRUDUsingADO.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Student List</h1>
+
+<p>
+    <a asp-action="Create">Add New Student</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Java)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DotNet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SQL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Angular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Percentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Java)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DotNet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SQL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Angular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
